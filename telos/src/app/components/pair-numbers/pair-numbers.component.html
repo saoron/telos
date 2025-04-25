@@ -1,0 +1,21 @@
+<div class="pair">
+  <label>
+    X:
+    <input
+      type="number"
+      [(ngModel)]="x"
+      name="x"
+      (ngModelChange)="validate()"
+    />
+  </label>
+  <label>
+    Y:
+    <input
+      type="number"
+      [(ngModel)]="y"
+      name="y"
+      (ngModelChange)="validate()"
+    />
+  </label>
+  <div *ngIf="error" class="error-box">{{ error }}</div>
+</div>

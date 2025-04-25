@@ -1,0 +1,23 @@
+// ...existing code...
+.right-side-table {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 350px;
+  background: #fafafa;
+  border-left: 1px solid #ddd;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 16px;
+}
+.right-side-table table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+.right-side-table th,
+.right-side-table td {
+  border: 1px solid #bbb;
+  padding: 4px 8px;
+}
+// ...existing code...
