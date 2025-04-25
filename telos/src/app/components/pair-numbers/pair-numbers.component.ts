@@ -20,7 +20,8 @@ export class PairNumbersComponent {
   x: number = 0;
   y: number = 0;
 
-  error: string | null = null;
+  errorX: string | null = null;
+  errorY: string | null = null;
 
   constructor(private pairNumberService: PairNumbersService) {}
 
@@ -50,15 +51,29 @@ export class PairNumbersComponent {
   }
 
   validate() {
+    this.errorX = null;
+    this.errorY = null;
+    let found = false;
     if (this.x == 0) {
-      this.error = 'X must be greater than 0';
+      this.errorX = 'X must be greater than 0';
+      found = true;
+    }
+    if (this.y == 0) {
+      this.errorY = 'Y must be greater than 0';
+      found = true;
     }
     if (this.x > this.maxX) {
-      this.error = `X must be less than or equal to ${this.maxX}`;
-    } else if (this.y > this.maxY) {
-      this.error = `Y must be less than or equal to ${this.maxY}`;
-    } else {
-      this.error = null;
+      this.errorX = `X must be less than or equal to ${this.maxX}`;
+      found = true;
+    }
+    if (this.y > this.maxY) {
+      this.errorY = `Y must be less than or equal to ${this.maxY}`;
+      found = true;
+    }
+
+    if (!found) {
+      this.errorX = null;
+      this.errorY = null;
       this.onChange({ x: this.x, y: this.y });
     }
     this.onTouched();

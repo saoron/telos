@@ -29,6 +29,8 @@ export class MainComponent {
     );
     if (!res) {
       this.error = 'Pair already exists';
+    } else {
+      this.error = null;
     }
   }
 }
